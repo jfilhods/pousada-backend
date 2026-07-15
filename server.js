@@ -10,7 +10,7 @@ import reportRoutes from './routes/report.js';
 import  sendDailyReport  from './services/emailService.js';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.set('trust proxy', 1)
 
