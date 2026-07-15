@@ -22,7 +22,8 @@ const allowedOrigins = [
     'http://127.0.0.1:3000',
     process.env.FRONTEND_URL, // Seu frontend no Render ou Vercel
     'https://*.onrender.com', // Qualquer app no Render
-    'https://*.vercel.app'    // Qualquer app na Vercel
+    'https://*.vercel.app',
+    'https://45.7.179.164'// Qualquer app na Vercel
 ];
 
 app.use(cors({
