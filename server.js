@@ -12,6 +12,8 @@ import  sendDailyReport  from './services/emailService.js';
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set('trust proxy', 1)
+
 // Middlewares
 app.use(helmet());
 // 🔧 CORREÇÃO: Configurar CORS para aceitar qualquer origem em produção
