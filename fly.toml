@@ -21,7 +21,7 @@ app = "pousada-api"  # Nome único para seu app
   cpus = 1
 
 # Configurações de health check
-[[checks]]
+[[checks.health]]
   port = 8080
   type = "http"
   path = "/api/health"
