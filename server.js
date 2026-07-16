@@ -25,7 +25,7 @@ const allowedOrigins = [
     process.env.FRONTEND_URL, // Seu frontend no Render ou Vercel
     'https://*.onrender.com', // Qualquer app no Render
     'https://*.vercel.app',
-    'https://45.7.179.164'// Qualquer app na Vercel
+    'https://pousadadoenildo.vercel.app' // Qualquer app na Vercel
 ];
 
 app.use(cors({
