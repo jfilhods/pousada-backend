@@ -1,8 +1,7 @@
-# fly.toml
-app = "pousada-api"  # Nome único para seu app
+app = "pousada-backend"
+primary_region = "gru"
 
 [build]
-  # Usar o Dockerfile
   dockerfile = "Dockerfile"
 
 [env]
@@ -12,24 +11,10 @@ app = "pousada-api"  # Nome único para seu app
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = false  # Manter sempre ativo
+  auto_stop_machines = "stop"
   auto_start_machines = true
 
 [[vm]]
-  memory = "256mb"  # Mínimo suficiente
+  memory = "256mb"
   cpu_kind = "shared"
   cpus = 1
-
-# Configurações de health check
-[[checks.health]]
-  port = 8080
-  type = "http"
-  path = "/api/health"
-  interval = "15s"
-  timeout = "2s"
-
-# Para conectar a um banco de dados
-# [services.concurrency]
-#   type = "connections"
-#   hard_limit = 25
-#   soft_limit = 20
