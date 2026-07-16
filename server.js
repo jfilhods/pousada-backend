@@ -17,18 +17,15 @@ app.set('trust proxy', 1)
 // Middlewares
 app.use(helmet());
 // 🔧 CORREÇÃO: Configurar CORS para aceitar qualquer origem em produção
-const allowedOrigins = [
-    'http://localhost:5500',
-    'http://127.0.0.1:5500',
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    process.env.FRONTEND_URL, // Seu frontend no Render ou Vercel
-    'https://*.onrender.com', // Qualquer app no Render
-    'https://*.vercel.app',
-    'https://pousadadoenildo.vercel.app' // Qualquer app na Vercel
-];
-
 app.use(cors({
+    origin: [
+        'https://pousadadoenildo.vercel.app',
+        'http://localhost:5500'
+    ],
+    credentials: true
+}));
+
+/*app.use(cors({
     origin: function (origin, callback) {
         // Permitir requisições sem origem (como mobile apps ou curl)
         if (!origin) return callback(null, true);
@@ -52,7 +49,7 @@ app.use(cors({
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
-}));
+}));*/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
